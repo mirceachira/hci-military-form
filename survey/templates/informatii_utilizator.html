@@ -1,0 +1,40 @@
+
+{% block content %}
+<form action='.' method='POST'> 
+    {% csrf_token %}
+    <div>
+            <h1> Despre dumneavoastra</h1>
+            <p> Varsta :{{ form.varsta }}  ani </p>
+            {{ form.varsta.errors }}
+            <p> Genul {{form.gen}}</p>
+            {{form.gen.errors}}
+            <p> Tip personal: {{form.tip_personal}}</p>
+            {{form.tip_personal.errors}}
+            <p>Detin grad militar: {{form.grad_militar}}</p>
+            {{form.grad_militar.errors}}
+            <p>Lucrez in aceasta functie de: {{form.durata_functie_ani}} ani si {{form.durata_functie_luni}} luni</p>
+            {{form.durata_functie_ani.errors}}  {{form.durata_functie_luni.errors}}
+            <p>Lucrez in cadrul unitatii militare actuale de {{form.durata_unitate_ani}} ani si {{form.durata_unitate_luni}} luni</p>
+             {{form.durata_functie_ani.errors}} {{form.durata_functie_luni.errors}}
+            <p>Lucrez in medie {{form.ore_pe_zi}} ore pe zi</p>
+            {{form.ore_pe_zi.errors}}
+            <p>Lucrez in ture {{form.ture}}</p>
+            {{form.ture.errors}}
+            <p>Daca da, care este programul turelor: {{form.program_ture}}</p>
+            
+    </div>
+
+    
+    <button type="submit">Submit </button>
+</form>
+{{varsta}}
+{{gen}}
+{{tip_personal}}
+{{grad_militar}}
+{{experienta_functie}}
+{{experienta_unitate}}
+{{ore_pe_zi}}
+{{ture}}
+{{program_ture}}
+
+{% endblock %}
