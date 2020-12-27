@@ -18,7 +18,7 @@ class IndexView(survey_views.IndexView):
         return context
 
 
-class SurveyDetail(survey_views.Detail):
+class SurveyDetail(survey_views.SurveyDetail):
     @survey_available
     def get(self, request, *args, **kwargs):
         survey = kwargs.get("survey")
