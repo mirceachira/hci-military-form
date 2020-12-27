@@ -8,56 +8,118 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Question',
+            name="Question",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField(help_text='Textul ce apare la inceputul intrebarii.')),
-                ('number', models.IntegerField(help_text='Pozitia pe pagina a intrebarii')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "text",
+                    models.TextField(
+                        help_text="Textul ce apare la inceputul intrebarii."
+                    ),
+                ),
+                (
+                    "number",
+                    models.IntegerField(help_text="Pozitia pe pagina a intrebarii"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='QuestionPage',
+            name="QuestionPage",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.IntegerField(help_text='Field pentru pastrat ordinea paginilor', unique=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "number",
+                    models.IntegerField(
+                        help_text="Field pentru pastrat ordinea paginilor", unique=True
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='FillInQuestion',
+            name="FillInQuestion",
             fields=[
-                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='survey.question')),
-                ('answer', models.TextField(help_text='Raspunsul primit')),
+                (
+                    "question_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="survey.question",
+                    ),
+                ),
+                ("answer", models.TextField(help_text="Raspunsul primit")),
             ],
-            bases=('survey.question',),
+            bases=("survey.question",),
         ),
         migrations.CreateModel(
-            name='MultipleChoiceQuesition',
+            name="MultipleChoiceQuesition",
             fields=[
-                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='survey.question')),
-                ('choice_1', models.TextField(help_text='Valoarea 1')),
-                ('choice_2', models.TextField(help_text='Valoarea 2')),
-                ('choice_3', models.TextField(help_text='Valoarea 3')),
+                (
+                    "question_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="survey.question",
+                    ),
+                ),
+                ("choice_1", models.TextField(help_text="Valoarea 1")),
+                ("choice_2", models.TextField(help_text="Valoarea 2")),
+                ("choice_3", models.TextField(help_text="Valoarea 3")),
             ],
-            bases=('survey.question',),
+            bases=("survey.question",),
         ),
         migrations.CreateModel(
-            name='MultipleSelectQuestion',
+            name="MultipleSelectQuestion",
             fields=[
-                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='survey.question')),
-                ('option_1', models.TextField(help_text='Optiunea 1')),
-                ('option_2', models.TextField(help_text='Optiunea 2')),
-                ('option_3', models.TextField(help_text='Optiunea 3')),
+                (
+                    "question_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to="survey.question",
+                    ),
+                ),
+                ("option_1", models.TextField(help_text="Optiunea 1")),
+                ("option_2", models.TextField(help_text="Optiunea 2")),
+                ("option_3", models.TextField(help_text="Optiunea 3")),
             ],
-            bases=('survey.question',),
+            bases=("survey.question",),
         ),
         migrations.AddField(
-            model_name='question',
-            name='page',
-            field=models.ForeignKey(help_text='Pagina pe care apare aceasta intrebare', on_delete=django.db.models.deletion.CASCADE, to='survey.questionpage'),
+            model_name="question",
+            name="page",
+            field=models.ForeignKey(
+                help_text="Pagina pe care apare aceasta intrebare",
+                on_delete=django.db.models.deletion.CASCADE,
+                to="survey.questionpage",
+            ),
         ),
     ]
