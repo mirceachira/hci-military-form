@@ -37,15 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-	"bootstrapform",
+    "bootstrapform",
     "survey",
     "chestionar",
 ]
 
 from pathlib import Path
 
-CSV_DIRECTORY = Path("csv") # Define the directory where csv are exported
-TEX_DIRECTORY = Path("tex") # Define the directory where tex files and pdf are exported
+CSV_DIRECTORY = Path("csv")  # Define the directory where csv are exported
+TEX_DIRECTORY = Path("tex")  # Define the directory where tex files and pdf are exported
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
