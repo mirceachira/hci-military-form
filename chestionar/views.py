@@ -3,6 +3,7 @@ import logging
 
 from django.shortcuts import render
 from survey import views as survey_views
+from survey.models import Survey
 from survey.decorators import survey_available
 from survey.forms import ResponseForm
 
@@ -14,7 +15,8 @@ class IndexView(survey_views.IndexView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["survey"] = context["surveys"][0]
+        context["survey"] = Survey.objects.all()[0]
+
         return context
 
 
