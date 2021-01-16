@@ -1,0 +1,15 @@
+{% extends 'survey/base.html' %}
+{% load i18n %}
+
+{% block body %}
+<div id="intro">
+    <h1> {{survey.name}} </h1>
+
+    <br/>
+
+    <p>{{ survey.description }}</p>
+
+    <a href="{{ survey.get_absolute_url }}">Incepe</a></li>
+
+</div>
+{% endblock %}
